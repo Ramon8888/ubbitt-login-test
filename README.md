@@ -49,9 +49,11 @@ cd ubbitt-login-test
 
 ```
 pip install pipenv
-pip install psycopg2-binary
+
 pipenv install
 pipenv shell
+
+pip install psycopg2-binary
 ```
 
 ### Configure the settings (connection to the database, connection to an SMTP server, and other options)
