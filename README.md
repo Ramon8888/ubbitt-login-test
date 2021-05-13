@@ -81,3 +81,13 @@ Just run this command:
 ```
 python source/manage.py runserver
 ```
+
+#### Special thanks to 
+
+<a href="https://github.com/egorsmkv/simple-django-login-and-register">EGORSMKV</a>
+
+This project was based in the next repository:
+
+```
+https://github.com/egorsmkv/simple-django-login-and-register.git
+```
