@@ -12,6 +12,10 @@ An example of Django project with basic user functionality.
 | ---------------|------------------|-----------------|
 | <img src="./screenshots/password_reset.png" width="200"> | <img src="./screenshots/set_new_password.png" width="200"> | <img src="./screenshots/password_change.png" width="200"> |
 
+| Session logs |
+| ---------------|
+| <img src="./screenshots/session_logs.png" width="200"> |
+
 ## Functionality
 
 - Log in
@@ -29,6 +33,7 @@ An example of Django project with basic user functionality.
 - Change email
 - Change profile
 - Multilingual: English, Russian, and Simplified Chinese
+- Session logs list
 
 
 ## Installing
@@ -36,8 +41,8 @@ An example of Django project with basic user functionality.
 ### Clone the project
 
 ```
-git clone https://github.com/egorsmkv/simple-django-login-and-register
-cd simple-django-login-and-register
+git clone https://github.com/Ramon8888/ubbitt-login-test.git
+cd ubbitt-login-test
 ```
 
 ### Install dependencies & activate virtualenv
