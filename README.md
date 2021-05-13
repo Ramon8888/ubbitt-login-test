@@ -60,7 +60,9 @@ pipenv shell
 
 2. Edit `source/app/conf/production/settings.py` if you want to run the project in production.
 
-### Apply migrations
+### Create database and apply migrations
+
+database: 'ubbitt_login'
 
 ```
 python source/manage.py migrate
