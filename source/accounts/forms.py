@@ -253,3 +253,4 @@ class RemindUsernameForm(UserCacheMixin, forms.Form):
         self.user_cache = user
 
         return email
+

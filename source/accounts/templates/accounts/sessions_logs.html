@@ -1,0 +1,36 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <h4>{% trans 'Sessions logs' %}</h4>
+     <div class="container mt-5 d-flex justify-content-center">
+        <div class="col-md-8 col-sm-9">
+            <div class="table-responsive">
+                <table id="myTable" class="table table-striped table-hover table-sm table-bordered" style="font-size: 12px;">
+                    <thead class="text-center bg-secondary text-light">
+                        <tr>
+                            <td colspan="3" style="font-size: 16px;">Session logs</td>
+                        </tr>
+                        <tr>
+                            <td>#</td>
+                            <td>Session date</td>
+                            <td>User id</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for element in object_list %}
+                        <tr>
+                            <td>{{ element.id }}</td>
+                            <td>{{ element.created_at|date:'Y-m-d' }}</td>
+                            <td>{{ element.user_id }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

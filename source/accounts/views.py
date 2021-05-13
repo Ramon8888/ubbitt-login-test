@@ -1,3 +1,4 @@
+import django
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, REDIRECT_FIELD_NAME
 from django.contrib.auth.tokens import default_token_generator
@@ -16,7 +17,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
-from django.views.generic import View, FormView
+from django.views.generic import View, FormView, ListView
 from django.conf import settings
 
 from .utils import (
@@ -27,7 +28,7 @@ from .forms import (
     RestorePasswordForm, RestorePasswordViaEmailOrUsernameForm, RemindUsernameForm,
     ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
 )
-from .models import Activation
+from .models import Activation, SessionLog
 
 
 class GuestOnlyView(View):
@@ -82,8 +83,11 @@ class LogInView(GuestOnlyView, FormView):
         if url_is_safe:
             return redirect(redirect_to)
 
+        # Insert session log
+        session_log = SessionLog()
+        session_log.user = form.user_cache
+        session_log.save()
         return redirect(settings.LOGIN_REDIRECT_URL)
-
 
 class SignUpView(GuestOnlyView, FormView):
     template_name = 'accounts/sign_up.html'
@@ -329,3 +333,15 @@ class RestorePasswordDoneView(BasePasswordResetDoneView):
 
 class LogOutView(LoginRequiredMixin, BaseLogoutView):
     template_name = 'accounts/log_out.html'
+
+class SessionsLogsView(ListView):
+    template_name = 'accounts/sessions_logs.html'
+    paginate_by = 10
+    #model = SessionLog
+    #queryset = SessionLog.objects.filter(user_id = 1)
+    def get_queryset(self, *arg, **kwargs):
+        return SessionLog.objects.filter(user_id= self.request.user)
+    
+    
+    
+    

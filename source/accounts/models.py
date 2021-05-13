@@ -7,3 +7,7 @@ class Activation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     code = models.CharField(max_length=20, unique=True)
     email = models.EmailField(blank=True)
+
+class SessionLog(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
