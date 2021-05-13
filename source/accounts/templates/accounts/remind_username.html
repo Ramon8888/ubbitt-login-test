@@ -5,23 +5,35 @@
 
 {% block content %}
 
-    <h4>{% trans 'Remind a username' %}</h4>
+    <div class="container mt-5">
+        <div class="col-md-12">
+            <h4>{% trans 'Remind a username' %}</h4><br><hr>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-sm-12">
+                <form method="post">
 
-    <form method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+            
+                    <button class="btn btn-secondary">{% trans 'Next' %}</button>
+            
+                </form>
+            
+                <hr>
+            
+                <ul>
+                    <li>
+                        <a href="{% url 'accounts:log_in' %}">{% trans 'Log in' %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
 
-        {% csrf_token %}
-        {% bootstrap_form form %}
+    
 
-        <button class="btn btn-primary">{% trans 'Next' %}</button>
-
-    </form>
-
-    <hr>
-
-    <ul>
-        <li>
-            <a href="{% url 'accounts:log_in' %}">{% trans 'Log in' %}</a>
-        </li>
-    </ul>
+    
 
 {% endblock %}

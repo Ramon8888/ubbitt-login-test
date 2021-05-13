@@ -5,13 +5,16 @@
 {% block content %}
 
     {% if request.user.is_authenticated %}
-
-        {% trans 'You are logged as: ' %} <b>{{ request.user.username }}</b>.
+        <div class="container mt-5">
+            {% trans 'You are logged as: ' %} <b>{{ request.user.username }}</b>.
+        </div>
+        
 
     {% else %}
-
-        {% trans 'You are a guest.' %}
-
+        <div class="container mt-5">
+            {% trans 'You are a guest.' %}
+        </div>
+        
     {% endif %}
 
 {% endblock %}

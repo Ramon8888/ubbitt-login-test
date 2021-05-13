@@ -5,29 +5,39 @@
 
 {% block content %}
 
-    <h4>{% trans 'Log in' %}</h4>
+    
+    <div class="container mt-5">
+        <div class="col-md-12">
+            <h4>{% trans 'Log in' %}</h4><br><hr>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-sm-12">
+                <form method="post">
+    
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+            
+                    <button class="btn btn-secondary">{% trans 'Log in' %}</button>
+                </form>
+            </div>
+            <div class="col-lg-12 col-sm-12 mt-5">
+                <ul>
+                    <li>
+                        <a href="{% url 'accounts:restore_password' %}">{% trans 'Forgot your password?' %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'accounts:remind_username' %}">{% trans 'Forgot your username?' %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    
 
-    <form method="post">
-
-        {% csrf_token %}
-        {% bootstrap_form form %}
-
-        <button class="btn btn-primary">{% trans 'Log in' %}</button>
-
-    </form>
-
-    <hr>
-
-    <ul>
-        <li>
-            <a href="{% url 'accounts:restore_password' %}">{% trans 'Forgot your password?' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'accounts:remind_username' %}">{% trans 'Forgot your username?' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %}</a>
-        </li>
-    </ul>
+    
 
 {% endblock %}

@@ -336,7 +336,7 @@ class LogOutView(LoginRequiredMixin, BaseLogoutView):
 
 class SessionsLogsView(ListView):
     template_name = 'accounts/sessions_logs.html'
-    paginate_by = 10
+    #paginate_by = 10
     #model = SessionLog
     #queryset = SessionLog.objects.filter(user_id = 1)
     def get_queryset(self, *arg, **kwargs):

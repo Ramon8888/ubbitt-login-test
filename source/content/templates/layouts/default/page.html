@@ -28,7 +28,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand" href="/">{% trans 'Home' %}</a>
+    <a class="navbar-brand" href="/">{% trans 'RA' %}</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
         <span class="navbar-toggler-icon"></span>
@@ -72,8 +72,10 @@
 </nav>
 
 <div class="container-fluid mt-3">
-
-    {% bootstrap_messages %}
+    <div class="container mt-5">
+        {% bootstrap_messages %}
+    </div>
+    
 
     {% block content %}
         No content.
